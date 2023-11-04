@@ -28,7 +28,7 @@ public class BookController {
     public Book getBook(@PathVariable("id") int id ){
        return this.bookService.getBookById(id);
     }
-   // Create resourse
+   // Create book handler
     @PostMapping("/books")
     public Book addBook(@RequestBody Book book){
          
