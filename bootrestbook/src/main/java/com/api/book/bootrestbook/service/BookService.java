@@ -31,7 +31,6 @@ public class BookService {
      book = list.stream().filter(e -> e.getId() == id).findFirst().get();
      return book;
     }
-
     // Creating Resource Rest API
 
     public Book addBook(Book b){
@@ -39,12 +38,10 @@ public class BookService {
         return b;
     }
 
-    // DElete Book 
-
-    public void deleteBook(int bid){
-     
-     list = list.stream().filter(book -> book.getId() != bid).
-     collect(Collectors.toList());
+    // Delete Book 
+      public void deleteBook(int bid){
+      list = list.stream().filter(book -> book.getId() != bid).
+      collect(Collectors.toList());
      
     }
 
@@ -53,7 +50,6 @@ public class BookService {
     public void updateBook(Book book , int bookId){
        list = list.stream().map(b -> {
             if (b.getId() == bookId) {
-                
                 b.setTitle(book.getTitle());
                 b.setAuthor(book.getAuthor());
             }
