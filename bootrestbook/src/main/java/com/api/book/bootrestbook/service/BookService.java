@@ -30,8 +30,7 @@ public class BookService {
     }
 
     // get single books by id
-
-    public Book getBookById(int id){
+     public Book getBookById(int id){
      Book book = null;  
      try {
        // book = list.stream().filter(e -> e.getId() == id).findFirst().get();
@@ -59,8 +58,7 @@ public class BookService {
     }
 
     // Upadte Book
-
-    public void updateBook(Book book , int bookId){
+     public void updateBook(Book book , int bookId){
     //    list = list.stream().map(b -> {
     //         if (b.getId() == bookId) {
                 
