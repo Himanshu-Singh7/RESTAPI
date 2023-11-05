@@ -9,7 +9,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "author")
 public class Author {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int authorId;
