@@ -1,14 +1,18 @@
 package com.api.book.bootrestbook.entites;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "author")
 public class Author {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int authorId;
@@ -17,6 +21,17 @@ public class Author {
     @Column(name = "last_name")
     private String lastName;
     private String language;
+    
+    @OneToOne(mappedBy = "author")
+    @JsonBackReference
+    private Book book;
+    
+    public Book getBook() {
+        return book;
+    }
+    public void setBook(Book book) {
+        this.book = book;
+    }
     
     public int getAuthorId() {
         return authorId;
@@ -43,21 +58,21 @@ public class Author {
         this.language = language;
     }
    
-    public Author(int authorId, String firstName, String lastName, String language) {
+    
+
+    public Author(int authorId, String firstName, String lastName, String language, Book book) {
         this.authorId = authorId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.language = language;
+        this.book = book;
     }
-
     public Author() {
     
     }
-    @Override
-    public String toString() {
-        return "Author [authorId=" + authorId + ", firstName=" + firstName + ", lastName=" + lastName + ", language="
-                + language + "]";
-    }
+    
+   
+    
 
     
 
